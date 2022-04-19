@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TravelAgency_v2</a> &gt; <a href="index.source.html" class="el_package">project</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package project;
+
+import project.classes.*;
+import project.controller.MainController;
+
+import java.util.ArrayList;
+
+<span class="fc" id="L8">public class App {</span>
+
+    public static void main(String[] arg) {
+
+<span class="fc" id="L12">        MainController mc = new MainController();</span>
+<span class="fc" id="L13">        populate(mc);</span>
+
+        /*exemples à partir des listes du main controller*/
+<span class="fc" id="L16">        mc.addReviewToHotel(mc.allReview.get(0),mc.allHotel.get(0));</span>
+<span class="fc" id="L17">        mc.addReviewToHotel(mc.allReview.get(1),mc.allHotel.get(1));</span>
+<span class="fc" id="L18">        mc.addReviewToHotel(mc.allReview.get(2),mc.allHotel.get(1));</span>
+
+<span class="fc" id="L20">        mc.showAllReviewFromHotel(mc.allHotel.get(1));</span>
+<span class="fc" id="L21">        mc.showAllHotelFromAgency(mc.allAgency.get(0));</span>
+<span class="fc" id="L22">        mc.showAllPackageDealFromAgency(mc.allAgency.get(0));</span>
+<span class="fc" id="L23">    }</span>
+
+    private static void populate(MainController mainController)
+    {
+<span class="fc" id="L27">        Agency agency1 = new Agency(&quot;Agence du gros luxe&quot;);</span>
+<span class="fc" id="L28">        mainController.allAgency.add(agency1);</span>
+
+<span class="fc" id="L30">        Destination destination1 = new Destination(&quot;Caraibe&quot;);</span>
+<span class="fc" id="L31">        Destination destination2 = new Destination(&quot;Sud&quot;);</span>
+<span class="fc" id="L32">        mainController.allDestination.add(destination1);</span>
+<span class="fc" id="L33">        mainController.allDestination.add(destination2);</span>
+
+<span class="fc" id="L35">        mainController.addDestinationToAgency(destination1,agency1);</span>
+<span class="fc" id="L36">        mainController.addDestinationToAgency(destination2,agency1);</span>
+
+<span class="fc" id="L38">        Activity activity1 = new Activity(&quot;Plage d'or&quot;, &quot;Magnifique plage au couleur doré et au sable doux unique au monde.&quot;);</span>
+<span class="fc" id="L39">        Activity activity2 = new Activity(&quot;Triangle des Bermudes &quot;, &quot;Une expérience unique en son genre qu'on ne fait qu'une seule fois dans ca vie.&quot;);</span>
+<span class="fc" id="L40">        mainController.allActivity.add(activity1);</span>
+<span class="fc" id="L41">        mainController.allActivity.add(activity2);</span>
+
+<span class="fc" id="L43">        mainController.addActivityToDestination(activity1,destination2);</span>
+<span class="fc" id="L44">        mainController.addActivityToDestination(activity2,destination1);</span>
+
+<span class="fc" id="L46">        Hotel hotel1 = new Hotel(&quot;OTL&quot;);</span>
+<span class="fc" id="L47">        Hotel hotel2 = new Hotel(&quot;Montagnais&quot;);</span>
+<span class="fc" id="L48">        Hotel hotel3 = new Hotel(&quot;Du Coin&quot;);</span>
+<span class="fc" id="L49">        mainController.allHotel.add(hotel1);</span>
+<span class="fc" id="L50">        mainController.allHotel.add(hotel2);</span>
+<span class="fc" id="L51">        mainController.allHotel.add(hotel3);</span>
+
+<span class="fc" id="L53">        hotel1.addAmenities(&quot;Piscine&quot;);</span>
+<span class="fc" id="L54">        hotel1.addAmenities(&quot;Bar&quot;);</span>
+<span class="fc" id="L55">        hotel1.addAmenities(&quot;Stationnement gratuit&quot;);</span>
+<span class="fc" id="L56">        hotel2.addAmenities(&quot;Piscine&quot;);</span>
+<span class="fc" id="L57">        hotel2.addAmenities(&quot;Bar&quot;);</span>
+<span class="fc" id="L58">        hotel3.addAmenities(&quot;Service au chambre&quot;);</span>
+
+<span class="fc" id="L60">        mainController.addHotelToDestination(hotel1,destination1);</span>
+<span class="fc" id="L61">        mainController.addHotelToDestination(hotel2,destination2);</span>
+<span class="fc" id="L62">        mainController.addHotelToDestination(hotel3,destination2);</span>
+
+<span class="fc" id="L64">        Fly at1 = new Fly(&quot;Air Transat&quot; , FlyClass.ECONOMY);</span>
+<span class="fc" id="L65">        Fly at2 = new Fly(&quot;Air Transat&quot; , FlyClass.BUSINESS);</span>
+<span class="fc" id="L66">        Fly at3 = new Fly(&quot;Air Transat&quot; , FlyClass.FIRST);</span>
+<span class="fc" id="L67">        Fly wj1 = new Fly(&quot;Westjet&quot; , FlyClass.ECONOMY);</span>
+<span class="fc" id="L68">        Fly wj2 = new Fly(&quot;Westjet&quot; , FlyClass.FIRST);</span>
+<span class="fc" id="L69">        mainController.allFly.add(at1);</span>
+<span class="fc" id="L70">        mainController.allFly.add(at2);</span>
+<span class="fc" id="L71">        mainController.allFly.add(at3);</span>
+<span class="fc" id="L72">        mainController.allFly.add(wj1);</span>
+<span class="fc" id="L73">        mainController.allFly.add(wj2);</span>
+
+<span class="fc" id="L75">        PackageDeal pd1 = new PackageDeal(300.00f,&quot;2023/11/03&quot;, at1,hotel1);</span>
+<span class="fc" id="L76">        PackageDeal pd2 = new PackageDeal(465.00f,&quot;2023/11/04&quot;, at2,hotel1);</span>
+<span class="fc" id="L77">        PackageDeal pd3 = new PackageDeal(350.00f,&quot;2023/03/03&quot;, at1,hotel2);</span>
+<span class="fc" id="L78">        PackageDeal pd4= new PackageDeal(700.59f,&quot;2023/12/07&quot;, at3,hotel3);</span>
+<span class="fc" id="L79">        PackageDeal pd5 = new PackageDeal(317.99f,&quot;2023/07/23&quot;, wj2,hotel3);</span>
+<span class="fc" id="L80">        PackageDeal pd6 = new PackageDeal(165.00f,&quot;2023/08/20&quot;, wj1,hotel3);</span>
+<span class="fc" id="L81">        mainController.allPackageDeal.add(pd1);</span>
+<span class="fc" id="L82">        mainController.allPackageDeal.add(pd2);</span>
+<span class="fc" id="L83">        mainController.allPackageDeal.add(pd3);</span>
+<span class="fc" id="L84">        mainController.allPackageDeal.add(pd4);</span>
+<span class="fc" id="L85">        mainController.allPackageDeal.add(pd5);</span>
+<span class="fc" id="L86">        mainController.allPackageDeal.add(pd6);</span>
+
+<span class="fc" id="L88">        mainController.addPackageDealToAgency(pd1,agency1);</span>
+<span class="fc" id="L89">        mainController.addPackageDealToAgency(pd2,agency1);</span>
+<span class="fc" id="L90">        mainController.addPackageDealToAgency(pd3,agency1);</span>
+<span class="fc" id="L91">        mainController.addPackageDealToAgency(pd4,agency1);</span>
+<span class="fc" id="L92">        mainController.addPackageDealToAgency(pd5,agency1);</span>
+<span class="fc" id="L93">        mainController.addPackageDealToAgency(pd6,agency1);</span>
+
+<span class="fc" id="L95">        Review review1 = new Review(&quot;Paul001&quot;, &quot;J'ai aimé les lieux. Je recommende fortement.&quot; , Stars.FIVE, Review.getTodayDate());</span>
+<span class="fc" id="L96">        Review review2 = new Review(&quot;LeChanteurSolitaire&quot;, &quot;Le karaoké était super. Malheureusement, l'alcool goûtait l'eau.&quot; , Stars.FOUR, &quot;2011/02/28&quot;);</span>
+<span class="fc" id="L97">        Review review3 = new Review(&quot;M@ryze.Larouche28&quot;, &quot;Des fois on m'appelle aussi Karen, c'est pourquoi je déconseille fortement cette place car les gens étaient beaucoup trop respectueux avec nous.&quot; , Stars.ONE, Review.getTodayDate());</span>
+<span class="fc" id="L98">        mainController.allReview.add(review1);</span>
+<span class="fc" id="L99">        mainController.allReview.add(review2);</span>
+<span class="fc" id="L100">        mainController.allReview.add(review3);</span>
+
+<span class="fc" id="L102">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

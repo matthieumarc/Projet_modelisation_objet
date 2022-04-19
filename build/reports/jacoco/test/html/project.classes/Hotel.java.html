@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Hotel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TravelAgency_v2</a> &gt; <a href="index.source.html" class="el_package">project.classes</a> &gt; <span class="el_source">Hotel.java</span></div><h1>Hotel.java</h1><pre class="source lang-java linenums">package project.classes;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class Hotel {
+
+    private String name;
+    public HashSet&lt;Review&gt; listReview;
+    private ArrayList&lt;String&gt; listAmenities;
+    public  Destination destination;
+    public HashSet&lt;PackageDeal&gt; listPackageDeal;
+
+<span class="fc" id="L15">    private static final DecimalFormat df = new DecimalFormat(&quot;0.00&quot;);</span>
+
+<span class="fc" id="L17">    public Hotel(String name){</span>
+<span class="fc" id="L18">        this.name = name;</span>
+<span class="fc" id="L19">        this.listReview = new HashSet&lt;Review&gt;();</span>
+<span class="fc" id="L20">        this.listAmenities = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L21">        this.listPackageDeal = new HashSet&lt;PackageDeal&gt;();</span>
+<span class="fc" id="L22">    }</span>
+
+    public void addAmenities(String anAmenities)
+    {
+<span class="fc" id="L26">        this.listAmenities.add(anAmenities);</span>
+<span class="fc" id="L27">    }</span>
+
+    public ArrayList&lt;String&gt; getAmenities()
+    {
+<span class="fc" id="L31">        return this.listAmenities;</span>
+    }
+
+    public HashSet&lt;Review&gt; getReviews()
+    {
+<span class="nc" id="L36">        return this.listReview;</span>
+    }
+
+    public String getName() {
+<span class="fc" id="L40">        return name;</span>
+    }
+
+    public float getAverageRating() {
+<span class="fc" id="L44">        float total = 0.0f;</span>
+<span class="fc" id="L45">        int size = listReview.size();</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        for (Review rev : listReview) {</span>
+<span class="fc" id="L47">            total += rev.getRatingValue();</span>
+<span class="fc" id="L48">        }</span>
+
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        if (size == 0){</span>
+<span class="fc" id="L51">            return total;</span>
+        }
+
+<span class="fc" id="L54">        return total/size;</span>
+    }
+
+    @Override
+    public String toString() {
+
+<span class="fc" id="L60">        StringBuilder strbuilder = new StringBuilder(&quot;Hotel =&gt; &quot;);</span>
+<span class="fc" id="L61">        strbuilder.append(this.getName()).append(System.lineSeparator());</span>
+<span class="fc" id="L62">        strbuilder.append(&quot; Avg.Rating: &quot;).append(df.format(this.getAverageRating())).append(&quot; From &quot;).append(this.listReview.size()).append(&quot; review&quot;).append(System.lineSeparator());</span>
+<span class="fc" id="L63">        strbuilder.append(&quot; Amenities: &quot;).append(this.listAmenities).append(System.lineSeparator());</span>
+<span class="fc" id="L64">        strbuilder.append(&quot; Destination: &quot;).append(this.destination.name).append(System.lineSeparator());</span>
+<span class="fc" id="L65">        strbuilder.append(&quot; Current Deal: &quot;).append(this.listPackageDeal.size()).append(&quot; total&quot;);</span>
+<span class="fc" id="L66">        return strbuilder.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

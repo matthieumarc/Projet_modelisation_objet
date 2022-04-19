@@ -1,6 +1,10 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
+
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
 
 group 'org.example'
 version '1.0-SNAPSHOT'
@@ -17,4 +21,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+task myJavadocs(type: Javadoc) {
+    source = sourceSets.main.allJava
 }

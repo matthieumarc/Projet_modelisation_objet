@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TravelAgency_v2</a> &gt; <a href="index.source.html" class="el_package">project.controller</a> &gt; <span class="el_source">MainController.java</span></div><h1>MainController.java</h1><pre class="source lang-java linenums">package project.controller;
+
+import project.classes.*;
+
+import java.util.ArrayList;
+
+public class MainController {
+
+    public ArrayList&lt;Agency&gt; allAgency;
+    public ArrayList&lt;Destination&gt; allDestination;
+    public ArrayList&lt;PackageDeal&gt; allPackageDeal;
+    public ArrayList&lt;Hotel&gt; allHotel;
+    public ArrayList&lt;Activity&gt; allActivity;
+    public ArrayList&lt;Review&gt; allReview;
+    public ArrayList&lt;Fly&gt; allFly;
+
+<span class="fc" id="L17">    private DestinationController destinationController = new DestinationController();</span>
+<span class="fc" id="L18">    private HotelController hotelController = new HotelController();</span>
+<span class="fc" id="L19">    private AgencyController agencyController = new AgencyController();</span>
+<span class="fc" id="L20">    private PackageDealController packageDealController = new PackageDealController();</span>
+
+
+    public MainController()
+<span class="fc" id="L24">    {</span>
+<span class="fc" id="L25">        allAgency = new ArrayList&lt;Agency&gt;();</span>
+<span class="fc" id="L26">        allDestination = new ArrayList&lt;Destination&gt;();</span>
+<span class="fc" id="L27">        allPackageDeal = new ArrayList&lt;PackageDeal&gt;();</span>
+<span class="fc" id="L28">        allHotel = new ArrayList&lt;Hotel&gt;();</span>
+<span class="fc" id="L29">        allActivity = new ArrayList&lt;Activity&gt;();</span>
+<span class="fc" id="L30">        allReview = new ArrayList&lt;Review&gt;();</span>
+<span class="fc" id="L31">        allFly = new ArrayList&lt;Fly&gt;();</span>
+<span class="fc" id="L32">    }</span>
+
+    public void addHotelToDestination(Hotel hotel, Destination destination)
+    {
+<span class="fc" id="L36">        destinationController.setDestination(destination);</span>
+<span class="fc" id="L37">        destinationController.addHotel(hotel);</span>
+
+<span class="fc" id="L39">        hotelController.setHotel(hotel);</span>
+<span class="fc" id="L40">        hotelController.setDestination(destination);</span>
+<span class="fc" id="L41">    }</span>
+
+    public void addDestinationToAgency(Destination destination, Agency agency)
+    {
+<span class="fc" id="L45">        destinationController.setDestination(destination);</span>
+<span class="fc" id="L46">        destinationController.setAgency(agency);</span>
+
+<span class="fc" id="L48">        agencyController.setAgency(agency);</span>
+        try {
+<span class="fc" id="L50">            agencyController.addDestination(destination);</span>
+        }
+<span class="nc" id="L52">        catch(Exception e) {</span>
+<span class="nc" id="L53">            System.out.println(e.getMessage());</span>
+<span class="fc" id="L54">        }</span>
+<span class="fc" id="L55">    }</span>
+
+    public void addPackageDealToAgency(PackageDeal packageDeal, Agency agency)
+    {
+<span class="fc" id="L59">        agencyController.setAgency(agency);</span>
+<span class="fc" id="L60">        packageDealController.setPackageDeal(packageDeal);</span>
+
+        try {
+<span class="fc" id="L63">            agencyController.addPackageDeal(packageDeal);</span>
+<span class="fc" id="L64">            packageDealController.setAgency(agency);</span>
+
+        }
+<span class="nc" id="L67">        catch(Exception e) {</span>
+<span class="nc" id="L68">            System.out.println(e.getMessage());</span>
+<span class="fc" id="L69">        }</span>
+
+<span class="fc" id="L71">    }</span>
+
+    public void addReviewToHotel(Review review, Hotel hotel) {
+<span class="fc" id="L74">        Hotel oldHotel = review.getHotel();</span>
+
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        if (!hotel.equals(oldHotel))</span>
+        {
+<span class="fc" id="L78">            hotelController.setHotel(hotel);</span>
+<span class="fc" id="L79">            hotelController.addReview(review);</span>
+
+            /*Oui il peut être null s'il n'a jamais été setté*/
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">            if(oldHotel != null)</span>
+            {
+<span class="nc" id="L84">                this.removeReviewFromHotel(review,oldHotel);</span>
+            }
+
+<span class="fc" id="L87">            review.setHotel(hotel);</span>
+        }
+<span class="fc" id="L89">    }</span>
+
+    public void removeReviewFromHotel(Review review, Hotel hotel)
+    {
+<span class="fc" id="L93">        hotelController.setHotel(hotel);</span>
+<span class="fc" id="L94">        hotelController.removeReview(review);</span>
+<span class="fc" id="L95">        review.setHotel(null);</span>
+<span class="fc" id="L96">    }</span>
+
+    public void addActivityToDestination(Activity activity, Destination destination) {
+<span class="fc" id="L99">        Destination oldDestination = activity.getDestination();</span>
+
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">        if (!destination.equals(oldDestination))</span>
+        {
+<span class="fc" id="L103">            destinationController.setDestination(destination);</span>
+<span class="fc" id="L104">            destinationController.addActivity(activity);</span>
+
+            /*Oui il peut être null s'il n'a jamais été setté*/
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">            if(oldDestination != null)</span>
+            {
+<span class="nc" id="L109">                this.removeActivityFromDestination(activity,oldDestination);</span>
+            }
+
+<span class="fc" id="L112">            activity.setDestination(destination);</span>
+        }
+<span class="fc" id="L114">    }</span>
+
+    public void removeActivityFromDestination(Activity activity, Destination destination)
+    {
+<span class="fc" id="L118">        destinationController.setDestination(destination);</span>
+<span class="fc" id="L119">        destinationController.removeActivity(activity);</span>
+<span class="fc" id="L120">        activity.setDestination(null);</span>
+<span class="fc" id="L121">    }</span>
+
+    public void showAllReviewFromHotel(Hotel hotel)
+    {
+<span class="fc" id="L125">        hotelController.setHotel(hotel);</span>
+<span class="fc" id="L126">        System.out.println(hotelController.getViewAllReview());</span>
+<span class="fc" id="L127">    }</span>
+
+    public void showAllPackageDealFromAgency(Agency agency)
+    {
+<span class="fc" id="L131">        agencyController.setAgency(agency);</span>
+<span class="fc" id="L132">        System.out.println(agencyController.getViewAllPackageDeal());</span>
+<span class="fc" id="L133">    }</span>
+    public void showAllHotelFromAgency(Agency agency)
+    {
+<span class="fc" id="L136">        agencyController.setAgency(agency);</span>
+<span class="fc" id="L137">        System.out.println(agencyController.getViewAllHotel());</span>
+<span class="fc" id="L138">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

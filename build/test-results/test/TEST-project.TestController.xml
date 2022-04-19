@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="project.TestController" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-19T23:41:00" hostname="MSI" time="0.007">
+  <properties/>
+  <testcase name="TestMainController()" classname="project.TestController" time="0.007"/>
+  <system-out><![CDATA[<Hotel "test_hotel" reviews>
+Rating:5 By:test_review On:2022/01/01
+"test_comment"
+
+<Agency Hotel>
+Hotel => test_hotel
+ Avg.Rating: 5,00 From 1 review
+ Amenities: []
+ Destination: test
+ Current Deal: 1 total
+
+<Agency Package Deal>
+Deal -> Price:10.0$ Date:test_date Fly:Test_company(FIRST) Hotel:test_hotel
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

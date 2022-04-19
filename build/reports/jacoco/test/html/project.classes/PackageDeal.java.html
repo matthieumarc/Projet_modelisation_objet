@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PackageDeal.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TravelAgency_v2</a> &gt; <a href="index.source.html" class="el_package">project.classes</a> &gt; <span class="el_source">PackageDeal.java</span></div><h1>PackageDeal.java</h1><pre class="source lang-java linenums">package project.classes;
+
+public class PackageDeal {
+
+    private float price;
+    private String date;
+    private Fly fly;
+    private Hotel hotel;
+    public Agency myAgency;
+
+<span class="fc" id="L11">    public PackageDeal(float price, String date, Fly fly, Hotel hotel){</span>
+
+<span class="fc" id="L13">        this.price = price;</span>
+<span class="fc" id="L14">        this.date = date;</span>
+<span class="fc" id="L15">        this.fly = fly;</span>
+<span class="fc" id="L16">        this.hotel = hotel;</span>
+<span class="fc" id="L17">    }</span>
+
+    public float getPrice() {
+<span class="fc" id="L20">        return price;</span>
+    }
+
+    public String getDate() {
+<span class="fc" id="L24">        return date;</span>
+    }
+
+    public Fly getFly() {
+<span class="fc" id="L28">        return fly;</span>
+    }
+
+    public Hotel getHotel() {
+<span class="fc" id="L32">        return hotel;</span>
+    }
+
+    @Override
+    public String toString() {
+
+<span class="fc" id="L38">        StringBuilder strbuilder = new StringBuilder(&quot;Deal -&gt;&quot;);</span>
+<span class="fc" id="L39">        strbuilder.append(&quot; Price:&quot;).append(this.getPrice()).append(&quot;$&quot;);</span>
+<span class="fc" id="L40">        strbuilder.append(&quot; Date:&quot;).append(this.getDate());</span>
+<span class="fc" id="L41">        strbuilder.append(&quot; Fly:&quot;).append(this.getFly());</span>
+<span class="fc" id="L42">        strbuilder.append(&quot; Hotel:&quot;).append(this.getHotel().getName());</span>
+<span class="fc" id="L43">        return strbuilder.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

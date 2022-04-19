@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="project.TestClasses" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-04-19T23:41:00" hostname="MSI" time="0.018">
+  <properties/>
+  <testcase name="PackageDealExists()" classname="project.TestClasses" time="0.007"/>
+  <testcase name="AgencyExists()" classname="project.TestClasses" time="0.001"/>
+  <testcase name="ReviewExists()" classname="project.TestClasses" time="0.003"/>
+  <testcase name="HotelExists()" classname="project.TestClasses" time="0.001"/>
+  <testcase name="FlyExists()" classname="project.TestClasses" time="0.001"/>
+  <testcase name="ActivityExists()" classname="project.TestClasses" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,59 @@
+<Hotel "Montagnais" reviews>
+/Rating:4 By:LeChanteurSolitaire On:2011/02/28
+G"Le karaoké était super. Malheureusement, l'alcool goûtait l'eau."
+-Rating:1 By:M@ryze.Larouche28 On:2022/04/19
+�"Des fois on m'appelle aussi Karen, c'est pourquoi je déconseille fortement cette place car les gens étaient beaucoup trop respectueux avec nous."
+
+<Agency Hotel>
+Hotel => Montagnais
+! Avg.Rating: 2,50 From 2 review
+ Amenities: [Piscine, Bar]
+ Destination: Sud
+ Current Deal: 1 total
+Hotel => Du Coin
+! Avg.Rating: 0,00 From 0 review
+" Amenities: [Service au chambre]
+ Destination: Sud
+ Current Deal: 3 total
+Hotel => OTL
+! Avg.Rating: 5,00 From 1 review
+3 Amenities: [Piscine, Bar, Stationnement gratuit]
+ Destination: Caraibe
+ Current Deal: 2 total
+
+<Agency Package Deal>
+LDeal -> Price:700.59$ Date:2023/12/07 Fly:Air Transat(FIRST) Hotel:Du Coin
+IDeal -> Price:300.0$ Date:2023/11/03 Fly:Air Transat(ECONOMY) Hotel:OTL
+PDeal -> Price:350.0$ Date:2023/03/03 Fly:Air Transat(ECONOMY) Hotel:Montagnais
+IDeal -> Price:165.0$ Date:2023/08/20 Fly:Westjet(ECONOMY) Hotel:Du Coin
+JDeal -> Price:465.0$ Date:2023/11/04 Fly:Air Transat(BUSINESS) Hotel:OTL
+HDeal -> Price:317.99$ Date:2023/07/23 Fly:Westjet(FIRST) Hotel:Du Coin
+
+
+<Hotel "test_hotel" reviews>
+
+'Rating:5 By:test_review On:2022/01/01
+
+"test_comment"
+
+
+
+<Agency Hotel>
+
+Hotel => test_hotel
+
+! Avg.Rating: 5,00 From 1 review
+
+ Amenities: []
+
+ Destination: test
+
+ Current Deal: 1 total
+
+
+
+<Agency Package Deal>
+
+MDeal -> Price:10.0$ Date:test_date Fly:Test_company(FIRST) Hotel:test_hotel
+
+

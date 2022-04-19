@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Review.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TravelAgency_v2</a> &gt; <a href="index.source.html" class="el_package">project.classes</a> &gt; <span class="el_source">Review.java</span></div><h1>Review.java</h1><pre class="source lang-java linenums">package project.classes;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Review {
+
+    private String date;
+    private String comment;
+    private String username;
+    private Stars rating;
+    private  Hotel myHotel;
+
+<span class="fc" id="L16">    public Review(String username, String comment, Stars star, String date){</span>
+
+<span class="fc" id="L18">        this.username = username;</span>
+<span class="fc" id="L19">        this.comment = comment;</span>
+<span class="fc" id="L20">        this.rating = star;</span>
+<span class="fc" id="L21">        this.date = date;</span>
+<span class="fc" id="L22">    }</span>
+
+    /**
+     * @return date of the review
+     */
+    public String getDate() {
+<span class="fc" id="L28">        return this.date;</span>
+    }
+
+    /**
+     * @return the comment describing the review
+     */
+    public String getComment() {
+<span class="fc" id="L35">        return this.comment;</span>
+    }
+
+    /**
+     * @return the username of the person who did the review
+     */
+    public String getUsername() {
+<span class="fc" id="L42">        return this.username;</span>
+    }
+
+    /**
+     * @return the number of stars the review get / his score ( 1 poorly ... 5 excellent)
+     */
+    public int getRatingValue() {
+<span class="fc" id="L49">        return this.rating.getValue();</span>
+    }
+
+    public void setHotel(Hotel hotel)
+    {
+<span class="fc" id="L54">        this.myHotel = hotel;</span>
+<span class="fc" id="L55">    }</span>
+
+    public Hotel getHotel()
+    {
+<span class="fc" id="L59">        return this.myHotel;</span>
+    }
+
+    /**
+     * @return valid the string is valid date in format yyyy/MM/dd
+     */
+    public static boolean isValidDate(String date)  {
+<span class="fc" id="L66">        DateFormat format = new SimpleDateFormat(&quot;yyyy/MM/dd&quot;);</span>
+<span class="fc" id="L67">        format.setLenient(false);</span>
+        try {
+<span class="fc" id="L69">            format.parse(date);</span>
+<span class="fc" id="L70">        } catch (ParseException e) {</span>
+<span class="fc" id="L71">            return false;</span>
+<span class="fc" id="L72">        }</span>
+<span class="fc" id="L73">        return true;</span>
+    }
+
+    /**
+     * @return a string of today date in the form of &quot;yyyy/MM/dd&quot;
+     */
+    public static String getTodayDate()  {
+<span class="fc" id="L80">        DateFormat sdf = new SimpleDateFormat(&quot;yyyy/MM/dd&quot;);</span>
+<span class="fc" id="L81">        return sdf.format(new Date());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

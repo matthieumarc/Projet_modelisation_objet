@@ -1,6 +1,5 @@
 package project.controller;
 
-import org.jetbrains.annotations.NotNull;
 import project.classes.Agency;
 import project.classes.Destination;
 import project.classes.Hotel;
@@ -19,8 +18,7 @@ class AgencyController {
         this.myAgency = agency;
     }
 
-
-    public void addPackageDeal(@NotNull PackageDeal deal) throws Exception
+    public void addPackageDeal(PackageDeal deal) throws Exception
     {
         if(this.myAgency.listHotel.contains(deal.getHotel()))
         {
