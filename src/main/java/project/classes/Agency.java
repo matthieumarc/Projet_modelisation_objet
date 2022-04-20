@@ -33,5 +33,9 @@ public class Agency {
         this.listPackageDeal = new HashSet<PackageDeal>();
         this.listHotel = new HashSet<Hotel>();
     }
+
+    /**
+     * @return le nom de l'Agence
+     */
     public String getName(){return name;}
 }

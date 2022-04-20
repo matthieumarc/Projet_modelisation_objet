@@ -5,8 +5,14 @@ import project.controller.MainController;
 
 import java.util.ArrayList;
 
+/**
+ * Application principale du programme
+ */
 public class App {
 
+    /**Méthode par ou le programme débute à son lancement
+     * @param arg argument passé au lancement du programme
+     */
     public static void main(String[] arg) {
 
         MainController mc = new MainController();

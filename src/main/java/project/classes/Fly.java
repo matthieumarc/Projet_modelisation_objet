@@ -1,10 +1,18 @@
 package project.classes;
 
+
+/**
+ * Entité pour décrire les données d'un vol d'avion
+ */
 public class Fly {
 
     private FlyClass fClass;
     private String compagnyName;
 
+    /**
+     * @param compagnyName Le nom de la compagnie de ce vol
+     * @param flyClass Le type de service reçu lors du vol
+     */
     public Fly(String compagnyName , FlyClass flyClass){
 
         this.compagnyName = compagnyName;
@@ -19,7 +27,7 @@ public class Fly {
     }
 
     /**
-     * @return the name of the comapagny of the Fly.
+     * @return the name of the compagny of the Fly.
      */
     public String getCompagnyName() {
         return compagnyName;
